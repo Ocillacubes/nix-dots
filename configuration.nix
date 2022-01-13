@@ -12,8 +12,8 @@
 
   # Network
   networking.useDHCP = false; # Global flag bad
-  networking.interfaces.enp0s25.useDHCP = true;
-  networking.interfaces.wlo1.useDHCP = true;
+  # networking.interfaces.enp0s25.useDHCP = true;
+  # networking.interfaces.wlo1.useDHCP = true;
   networking.networkmanager.enable = true;
   networking.hostName = "ganbaranai";
 
@@ -27,13 +27,15 @@
   users.defaultUserShell = pkgs.zsh;
 
   # Mpd
-  services.mpd.enable = true;
+  # services.mpd.enable = true;
 
   # Xorg
   services.xserver.enable = true;
   services.xserver.windowManager.i3.enable = true;
   services.unclutter.enable = true; # hides cursor when not in use
-  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.displayManager = {
+  	sddm.enable = true;
+  };
   
   # Audio
   sound.enable = true;
@@ -45,8 +47,10 @@
 
   # Zsh
   programs.zsh.enableCompletion = true;
+  programs.zsh.autosuggestions.enable = true;
+  programs.zsh.syntaxHighlighting.enable = true;
 
-  # Fonts
+  # fonts
   fonts.fonts = with pkgs; [
     iosevka
     hanazono
@@ -82,11 +86,13 @@
     p7zip
     neofetch
     xterm
+    iosevka
+    hanazono
     cmake
     tree
     lxappearance
-    zsh-autosuggestions
-    zsh-syntax-highlighting
+    xorg.xinit
+    mpd
   ];
 
 }
