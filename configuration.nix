@@ -46,6 +46,12 @@
   # Zsh
   programs.zsh.enableCompletion = true;
 
+  # Fonts
+  fonts.fonts = with pkgs; [
+    iosevka
+    hanazono
+  ];
+
   # Packages
   environment.systemPackages = with pkgs; [
     neovim
@@ -76,8 +82,6 @@
     p7zip
     neofetch
     xterm
-    iosevka
-    hanazono
     cmake
     tree
     lxappearance
