@@ -45,8 +45,6 @@
 
   # Zsh
   programs.zsh.enableCompletion = true;
-  programs.zsh.autosuggestions.enable = true;
-  programs.zsh.syntaxHighlighting.enable = true;
 
   # Packages
   environment.systemPackages = with pkgs; [
@@ -83,6 +81,8 @@
     cmake
     tree
     lxappearance
+    zsh-autosuggestions
+    zsh-syntax-highlighting
   ];
 
 }
